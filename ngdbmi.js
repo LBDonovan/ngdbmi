@@ -907,7 +907,7 @@ function gdbMI( command_and_args, options, gdbWrapper )
 		catch(e)
 		{
 			/* We lamentably failed =( */
-			console.log(e);
+			console.log('error parsing state (parseStateArgs) '+e);
 		}
 		
 		return ret;
