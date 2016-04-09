@@ -199,11 +199,23 @@ function removeArrayLabels( args )
 		/* This is a small state handling 
 		 * in order to see if we are in an array
 		 * and therefore if we have to remove labels */
-		if( args[i] == "[" )
-			t_in_array.push(1);
+		if( args[i] == "[" ){
+			if ((args[i-1] && args[i-1] === "'") && (args[i+1] && args[i+1] === "'")){
+				// if the array symbol is part of a char argument it will be surrounded by single quotes
+				// this shouldn't be escaped
+			} else {
+				t_in_array.push(1);
+			}
+		}
 		
-		if( args[i] == "{" )
-			t_in_array.push(0);
+		if( args[i] == "{" ){
+			if ((args[i-1] && args[i-1] === "'") && (args[i+1] && args[i+1] === "'")){
+				// if the object symbol is part of a char argument it will be surrounded by single quotes
+				// this shouldn't be escaped
+			} else {
+				t_in_array.push(0);
+			}
+		}
 		
 		if( args[i] == "]" || args[i] == "}" )
 			t_in_array.pop();
