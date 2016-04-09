@@ -697,8 +697,88 @@ function commandList()
 	] ) );
 
 	/*#######################
-	# TODO VARIABLE         #
+	# Variable Objects      #
 	#######################*/
+	
+	this.insert( new command( "enablePrettyPrinting" , "-enable-pretty-printing", []));
+	this.insert( new command( "varCreate" , "-var-create", 
+	[
+		new commandParam( "name", false, "", "argOnly", ["string"] ),
+		new commandParam( "frame", false, "", "argOnly", ["string"] ),
+		new commandParam( "expression", true, "", "argOnly", ["string"] )
+	] ) );
+	this.insert( new command( "varDelete" , "-var-delete", 
+	[
+		new commandParam( "children", false, "-c", "keyOnly", ["number"] ),
+		new commandParam( "name", true, "", "argOnly", ["string"] )
+	] ) );
+	this.insert( new command( "varSetFormat" , "-var-set-format", 
+	[
+		new commandParam( "name", true, "", "argOnly", ["string"] ),
+		new commandParam( "format", true, "", "argOnly", ["string"] )
+	] ) );
+	this.insert( new command( "varShowFormat" , "-var-show-format", 
+	[
+		new commandParam( "name", true, "", "argOnly", ["string"] )
+	] ) );
+	this.insert( new command( "varInfoNumChildren" , "-var-info-num-children", 
+	[
+		new commandParam( "name", true, "", "argOnly", ["string"] )
+	] ) );
+	this.insert( new command( "varListChildren" , "-var-list-children", 
+	[
+		new commandParam( "print", false, "", "argOnly", ["number"] ),
+		new commandParam( "name", true, "", "argOnly", ["string"] ),
+		new commandParam( "from", false, "", "argOnly", ["number"] ),
+		new commandParam( "to", false, "", "argOnly", ["number"] )
+	] ) );
+	this.insert( new command( "varInfoType" , "-var-info-type", 
+	[
+		new commandParam( "name", true, "", "argOnly", ["string"] )
+	] ) );
+	this.insert( new command( "varInfoExpression" , "-var-info-expression", 
+	[
+		new commandParam( "name", true, "", "argOnly", ["string"] )
+	] ) );
+	this.insert( new command( "varInfoPathExpression" , "-var-info-path-expression", 
+	[
+		new commandParam( "name", true, "", "argOnly", ["string"] )
+	] ) );
+	this.insert( new command( "varShowAttributes" , "-var-show-attributes", 
+	[
+		new commandParam( "name", true, "", "argOnly", ["string"] )
+	] ) );
+	this.insert( new command( "varEvaluateExpression" , "-var-evaluate-expression", 
+	[
+		new commandParam( "formate", false, "-f", "keyAndArg", ["string"] ),
+		new commandParam( "name", true, "", "argOnly", ["string"] )
+	] ) );
+	this.insert( new command( "varAssign" , "-var-assign", 
+	[
+		new commandParam( "name", true, "", "argOnly", ["string"] ),
+		new commandParam( "expression", true, "", "argOnly", ["string"] )
+	] ) );
+	this.insert( new command( "varUpdate" , "-var-update", 
+	[
+		new commandParam( "print", false, "", "argOnly", ["number"] ),
+		new commandParam( "name", true, "", "argOnly", ["string"] )
+	] ) );
+	this.insert( new command( "varSetFrozen" , "-var-set-frozen", 
+	[
+		new commandParam( "name", true, "", "argOnly", ["string"] ),
+		new commandParam( "flag", true, "", "argOnly", ["number"] )
+	] ) );
+	this.insert( new command( "varSetUpdateRange" , "-var-set-update-range", 
+	[
+		new commandParam( "name", true, "", "argOnly", ["string"] ),
+		new commandParam( "from", true, "", "argOnly", ["number"] ),
+		new commandParam( "to", true, "", "argOnly", ["number"] )
+	] ) );
+	this.insert( new command( "varSetVisualizer" , "-var-set-visualizer", 
+	[
+		new commandParam( "name", true, "", "argOnly", ["string"] ),
+		new commandParam( "visualizer", true, "", "argOnly", ["string"] )
+	] ) );
 
 	/*#######################
 	# TODO DATA             #
