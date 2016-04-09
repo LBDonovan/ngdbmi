@@ -966,6 +966,9 @@ function gdbMI( command_and_args, options, gdbWrapper )
 	gdbMI.prototype.parseStateArgs = function( args )
 	{
 		/* This is crazy but GDB almost provides a JSON output */
+		args = args.split('type_changed').join('type-changed');
+		args = args.split('in_scope').join('in-scope');
+		args = args.split('has_more').join('has-more');
 		args = args.replace(/=/g, "!:");
 		args = args.replace(/([a-zA-Z0-9-]*)!:/g, "\"$1\":");
 
